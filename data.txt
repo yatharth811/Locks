@@ -1,0 +1,155 @@
+TAS:
+
+(1, .0014588424)
+(2, .0014699065)
+(4, .0015588211)
+(8, .0017209520)
+(16,.0020840361)
+(32,.0028057496)
+
+TTAS:
+(1, .0014181573)
+(2, .0014194619)
+(4, .0014629681)
+(8, .0015332492)
+(16,.0017235677)
+(32,.0023813977)
+
+ALock:
+(1, .0014243203)
+(2, .0017643832)
+(4, .0026934291)
+(8, .0035553096)
+(16, .0032295542)
+(32, .0030992205)
+
+CLHLock:
+(1, .0014351230)
+(2, .0014619705)
+(4, .0015013688)
+(8, .0016316435)
+(16, .0020011630)
+(32, .0027227473)
+
+MCSLock:
+(1, .0014292065)
+(2, .0014571026)
+(4, .0014861854)
+(8, .0016102815)
+(16, .0020153058)
+(32, .0027643530)
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Welcome to Overleaf --- just edit your LaTeX on the left,
+% and we'll compile it for you on the right. If you open the
+% 'Share' menu, you can invite other users to edit at the same
+% time. See www.overleaf.com/learn for more info. Enjoy!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{textcomp}
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.9}
+%\usepgfplotslibrary{external}
+%\tikzexternalize
+\begin{document}
+Plotting from data:
+
+\begin{tikzpicture}
+\begin{axis}[
+    % title={Temperature dependence of CuSO\(_4\cdot\)5H\(_2\)O solubility},
+    % xlabel={Temperature [\textcelsius]},
+    % ylabel={Solubility [g per 100 g water]},
+    xmin=0, xmax=32,
+    ymin=0.001, ymax=0.004,
+    xtick={1, 2, 4, 8, 16, 32},
+    % ytick={0},
+    legend pos=north west,
+    ymajorgrids=true,
+    grid style=dashed,
+]
+
+
+
+
+\addplot[
+color=green,
+mark=square,
+]
+coordinates {
+    (1, .0014243203)
+    (2, .0017643832)
+    (4, .0026934291)
+    (8, .0035553096)
+    (16, .0032295542)
+    (32, .0030992205)
+};
+
+\addplot[
+    color=blue,
+    mark=square,
+    ]
+    coordinates {
+        (1, .0014588424)
+        (2, .0014699065)
+        (4, .0015588211)
+        (8, .0017209520)
+        (16,.0020840361)
+        (32,.0028057496)
+    };
+ 
+
+
+
+
+\addplot[
+color=purple,
+mark=square,
+]
+coordinates {
+    (1, .0014292065)
+    (2, .0014571026)
+    (4, .0014861854)
+    (8, .0016102815)
+    (16, .0020153058)
+    (32, .0027643530)
+};
+
+\addplot[
+color=orange,
+mark=square,
+]
+coordinates {
+    (1, .0014351230)
+    (2, .0014619705)
+    (4, .0015013688)
+    (8, .0016316435)
+    (16, .0020011630)
+    (32, .0027227473)
+};
+
+
+\addplot[
+    color=red,
+    mark=square,
+    ]
+    coordinates {
+        (1, .0014181573)
+        (2, .0014194619)
+        (4, .0014629681)
+        (8, .0015332492)
+        (16,.0017235677)
+        (32,.0023813977)
+    };
+
+
+
+\legend{ALock, TAS, MCSLock, CLHLock, TTAS}
+    
+\end{axis}
+\end{tikzpicture}
+\end{document}
