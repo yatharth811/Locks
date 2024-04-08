@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <vector>
 #include <atomic>
 #include <thread>
@@ -52,9 +53,9 @@ int main(int argc, char** argv) {
     std::cout << "\e[1;33m \u26BF \e[0m";
     std::cout << " Lock: " << x << std::endl;
 
-    std::cout << " Expected Value of Counter: " << 1'000'000 << std::endl;
+    std::cout << " Expected Value of Counter: " << (1'000'000 / nthreads) * nthreads << std::endl;
     std::cout << " Received Value: " << counter << std::endl;
-    std::cout << (counter == 1'000'000 ? " AC \e[1;32m \u2714 \e[0m" : " WA \e[1;31m \u00D7 \e[0m") << std::endl;
+    std::cout << (counter == (1'000'000 / nthreads) * nthreads ? " AC \e[1;32m \u2714 \e[0m" : " WA \e[1;31m \u00D7 \e[0m") << std::endl;
     std::cout << " Time taken: " << std::fixed << std::setprecision(10) << time_taken << std::endl;
     std::cout << std::endl;
     

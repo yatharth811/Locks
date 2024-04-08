@@ -1,4 +1,5 @@
 #!/bin/bash
+g++ main.cpp -o main.out -std=c++20
 nthreads=$1
 declare -A avg_times
 for ((i=0; i<5; i++)); do

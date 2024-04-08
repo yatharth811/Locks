@@ -1,6 +1,7 @@
 #pragma once
 #include <atomic>
 #include "Lock.hpp"
+
 class TTAS : public Lock {
   std::atomic<bool> locked = false;
 

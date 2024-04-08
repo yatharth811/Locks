@@ -11,3 +11,7 @@ We have implemented following locks:
 ### How to Run?
 `g++ -std=c++20 -Wall main.cpp -o main`
 `./main [Number of Threads]`
+
+
+### Average Times
+To get average runtimes, run  `sh run.sh [number of threads] [number of iterations]`. Average runtimes are printed in the order given above.

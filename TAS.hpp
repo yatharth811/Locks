@@ -2,7 +2,7 @@
 #include <atomic>
 #include "Lock.hpp"
 
-class TAS : public Lock{
+class TAS : public Lock {
   std::atomic<bool> locked = false;
   
   public:
