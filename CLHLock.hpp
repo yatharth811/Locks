@@ -4,7 +4,7 @@
 #include "QNode.hpp"
 #include "Lock.hpp"
 
-class CLHLock : public Lock {
+class CLHLock : public Lock<CLHLock> {
   std::atomic<std::shared_ptr<QNode>> tail;
   thread_local static std::shared_ptr<QNode> myPred;
   thread_local static std::shared_ptr<QNode> myNode;
@@ -12,7 +12,7 @@ class CLHLock : public Lock {
   public:
   CLHLock() {
     tail = std::shared_ptr<QNode>(new QNode());
-  };
+  }
 
   void lock() {
     myNode->locked = true;

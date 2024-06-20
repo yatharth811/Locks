@@ -4,7 +4,7 @@
 #include "QNode.hpp"
 #include "Lock.hpp"
 
-class MCSLock : public Lock {
+class MCSLock : public Lock<MCSLock> {
   std::atomic<std::shared_ptr<QNode>> tail;
   thread_local static std::shared_ptr<QNode> myNode;
 

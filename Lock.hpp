@@ -1,8 +1,15 @@
 #pragma once
 
-class Lock {
+template<typename T>
+class Lock { 
   public:
-  virtual void lock() = 0;
-  virtual void unlock() = 0;
-  virtual ~Lock() = default;
+  void lock() {
+    static_cast<T*>(this)->lock();
+  }
+
+  void unlock() {
+    static_cast<T*>(this)->unlock();
+  }
+  
+  ~Lock() = default;
 };

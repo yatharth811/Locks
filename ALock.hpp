@@ -3,14 +3,14 @@
 #include <vector>
 #include "Lock.hpp"
 
-class ALock : public Lock {
+class ALock : public Lock<ALock> {
   thread_local static int myslot;
-  std::atomic<int> tail {0};
+  std::atomic<int> tail;
   std::vector<bool> flag;
   int size;
 
   public:
-    ALock(int capacity) : size(capacity) {
+    ALock(int capacity) : size(capacity), tail(0) {
       flag.assign(size, false);
       flag[0] = true;
     }
